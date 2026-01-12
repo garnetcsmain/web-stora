@@ -1,0 +1,10 @@
+{
+  "name": "stora-contact-form-lambda",
+  "version": "1.0.0",
+  "description": "Lambda function for Stora contact form",
+  "type": "module",
+  "main": "index.mjs",
+  "dependencies": {
+    "@aws-sdk/client-ses": "^3.515.0"
+  }
+}

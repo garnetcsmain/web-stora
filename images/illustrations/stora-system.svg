@@ -1,0 +1,38 @@
+<svg width="1096" height="346" viewBox="0 0 1096 346" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- This is a simplified combined system illustration -->
+  <!-- All component SVGs from Figma are overlayed -->
+  
+  <!-- System Group 2 -->
+  <g transform="translate(200, 93)">
+    <svg width="570.49" height="182.17" viewBox="0 0 570.49 182.17" fill="none">
+      <path d="M224.59,87.3h0Z" fill="#FAEFE3"/>
+      <path d="M224.6,0H0V87.3H224.6Z" fill="#022859"/>
+      <path d="M146.11,87.3h0Z" fill="#FAEFE3"/>
+      <path d="M570.49,32.23H345.89v87.3H570.49Z" fill="#022859"/>
+      <path d="M345.89,55.51H224.6v127.1H345.89Z" fill="#F49B39"/>
+      <path d="M345.89,55.51H224.6v87.3l121.29-32.23Z" fill="#022859"/>
+    </svg>
+  </g>
+  
+  <!-- System Group 3 (top right) -->
+  <g transform="translate(763, 0)">
+    <svg width="332.3" height="336.34" viewBox="0 0 332.3 336.34" fill="none">
+      <g>
+        <g>
+          <path d="M165.72,0v89.07h0c23.04,0,41.72,18.67,41.72,41.72v16.87h0c23.04,0,41.72,18.67,41.72,41.72v47.18h41.72V107.56C290.88,48.18,242.7,0,183.32,0h-17.6Z" fill="#FAEFE3"/>
+        </g>
+        <path d="M89.07,107.56v86.16h-46.64c-23.46,0-42.43,19.01-42.43,42.43v14.67h89.07v-86.16h46.64c23.46,0,42.43-19.01,42.43-42.43v-14.67h-89.07Z" fill="#022859"/>
+      </g>
+    </svg>
+  </g>
+  
+  <!-- System Group 4 (bottom left) -->
+  <g transform="translate(0, 12)">
+    <svg width="264.4" height="333.55" viewBox="0 0 264.4 333.55" fill="none">
+      <path d="M120.69,185.81l29.68,32.61,73.36-59.49-75.22-13.8L32.99,76.46l-33.11,232.57,75.22-13.8,45.59-109.42Z" fill="#F49B39"/>
+      <path d="M140.6,14.5l33.11,232.57-72.67-11.61v-54.73h-56.58V76.46L207.45,0l-66.85,14.5Z" fill="#022859"/>
+      <path d="M44.46,111.26v54.73h56.58v-54.73h-56.58Z" fill="#022859"/>
+      <path d="M44.46,180.73v54.73h56.58v-54.73h-56.58Z" fill="#022859"/>
+    </svg>
+  </g>
+</svg>

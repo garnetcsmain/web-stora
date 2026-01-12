@@ -1,0 +1,10 @@
+# AWS Configuration for Stora Landing Page
+# Generated: Mon Jan 12 08:58:45 -05 2026
+
+BUCKET_NAME=storaapp.com
+REGION=us-east-1
+DISTRIBUTION_ID=E2ONCP326U5DRW
+CF_DOMAIN=d1t6nfcjotkyin.cloudfront.net
+CERT_ARN=arn:aws:acm:us-east-1:590447489888:certificate/152e230d-837c-42cb-8725-7cd4b4ea2f82
+API_ENDPOINT=https://xmr2xk8ksc.execute-api.us-east-1.amazonaws.com/prod/contact
+LAMBDA_FUNCTION=stora-contact-form
