@@ -228,7 +228,7 @@ See `aws-config.txt` for complete resource list.
 
 ## 📞 Contact
 
-- **Email**: contacto@storaapp.com
+- **Email**: info@storaapp.com
 - **Team**: Stora WMS
 - **Confluence**: WMS Space
 
