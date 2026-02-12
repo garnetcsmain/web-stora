@@ -106,6 +106,27 @@ After any deployment:
 
 ## Common Issues
 
+### Issue: "AI PR Review check failed"
+**Check:**
+1. GitHub secret `OPENAI_API_KEY` exists and is valid
+2. Workflow file exists: `.github/workflows/ai-pr-review.yml`
+3. PR is not in draft state
+
+### Issue: "Auto deploy workflow failed on main"
+**Check:**
+1. GitHub secrets `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` are configured
+2. GitHub variables `AWS_REGION`, `AWS_S3_BUCKET`, `AWS_CLOUDFRONT_DISTRIBUTION_ID` are configured
+3. IAM deploy user still has valid active access key and required policy
+4. CloudFront distribution ID and bucket values are correct
+
+### Issue: "Docs Sync Check failed"
+**Cause:**
+- Deployment/infra/workflow files changed, but no `*.md` docs were updated
+
+**Fix:**
+1. Update relevant documentation (`README.md`, `CONTRIBUTING.md`, `QUICKSTART.md`, etc.)
+2. Commit docs updates in the same PR
+
 ### Issue: "Site looks broken after deployment"
 **Solution:**
 ```bash

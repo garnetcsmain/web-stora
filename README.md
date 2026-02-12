@@ -88,6 +88,19 @@ This will:
 
 **Note:** The deploy script automatically sets correct MIME types for all file types to ensure proper rendering.
 
+### Automatic Deployment (GitHub Actions)
+
+Deploys now run automatically when changes are merged into `main` via:
+
+- `.github/workflows/deploy-main.yml`
+
+Additional CI workflows:
+
+- `.github/workflows/ai-pr-review.yml` (AI review comments on PRs)
+- `.github/workflows/docs-sync-check.yml` (requires docs updates when infra/deploy config changes)
+
+See `GITHUB-ACTIONS-SETUP.md` for full setup, required secrets/variables, and branch protection rules.
+
 ### Manual Deployment
 
 If you prefer manual deployment:
@@ -195,6 +208,7 @@ Event tracking included:
 ### Project Documentation
 
 - `README.md` - This file (overview and setup)
+- `GITHUB-ACTIONS-SETUP.md` - GitHub Actions, IAM deploy user, and secrets/variables setup
 - `QUICKSTART.md` - Quick local development guide
 - `TROUBLESHOOTING.md` - Complete troubleshooting guide
 - `PORKBUN-DNS-SETUP.md` - DNS configuration guide

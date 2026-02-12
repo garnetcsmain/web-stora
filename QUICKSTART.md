@@ -85,12 +85,6 @@ Value: [provided by AWS]
 
 The setup script creates `aws-config.txt` with all your values. Use them to update:
 
-#### Update `deploy.sh`:
-```bash
-# Line 27
-DISTRIBUTION_ID="YOUR_ACTUAL_DISTRIBUTION_ID"
-```
-
 #### Update `js/contact-form.js`:
 ```bash
 # Line 10
@@ -116,6 +110,17 @@ This will:
 3. **Check email**: Verify you received the test submission
 4. **Test on mobile**: Check responsive design
 5. **Check HTTPS**: Ensure SSL certificate is working
+
+### Step 8: Configure GitHub Actions (Recommended)
+
+To enforce AI PR review and auto-deploy on merge to `main`, configure:
+
+1. GitHub Actions workflows in `.github/workflows/`
+2. GitHub secrets (`OPENAI_API_KEY`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`)
+3. GitHub variables (`AWS_REGION`, `AWS_S3_BUCKET`, `AWS_CLOUDFRONT_DISTRIBUTION_ID`)
+4. Branch protection checks (`AI PR Review`, `Docs Sync Check`)
+
+Full instructions: `GITHUB-ACTIONS-SETUP.md`
 
 ## 🧪 Testing Locally (Before Deployment)
 

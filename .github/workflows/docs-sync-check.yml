@@ -1,0 +1,52 @@
+name: Docs Sync Check
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - edited
+
+permissions:
+  contents: read
+
+jobs:
+  docs-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ensure docs are updated when deployment/config changes
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+
+          changed_files="$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")"
+
+          echo "Changed files:"
+          echo "$changed_files"
+
+          needs_docs_update=0
+          has_docs_update=0
+
+          if echo "$changed_files" | grep -Eq '^(deploy\.sh|setup-aws-infrastructure\.sh|fix-content-types\.sh|aws-config\.txt|\.github/workflows/|lambda/)'; then
+            needs_docs_update=1
+          fi
+
+          if echo "$changed_files" | grep -Eq '\.md$'; then
+            has_docs_update=1
+          fi
+
+          if [ "$needs_docs_update" -eq 1 ] && [ "$has_docs_update" -eq 0 ]; then
+            echo "Deployment/infrastructure/workflow files changed, but no Markdown docs were updated."
+            echo "Please update at least one *.md file to keep local documentation current."
+            exit 1
+          fi
+
+          echo "Docs sync check passed."

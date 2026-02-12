@@ -8,23 +8,27 @@ Best practices and guidelines for working with this repository and AWS infrastru
 
 ### Making Changes
 
-1. **Always work on the main branch** (simple single-page site)
-2. **Test locally first** before deploying to production
+1. **Work on feature branches**, open PR into `main`
+2. **Test locally first** before opening PR
 3. **Commit frequently** with clear messages
-4. **Deploy after testing** using the deploy script
+4. **Update `*.md` docs** when changing deployment/infra/workflows
+5. **Merge to `main` to trigger auto-deploy** via GitHub Actions
 
 ### Typical Workflow
 
 ```bash
-# 1. Make your changes
+# 1. Create a branch
+git checkout -b feat/your-change
+
+# 2. Make your changes
 vim index.html
 vim css/styles.css
 
-# 2. Test locally
+# 3. Test locally
 python3 -m http.server 8000
 # Visit http://localhost:8000
 
-# 3. Commit changes
+# 4. Commit changes
 git add -A
 git commit -m "Update hero section copy
 
@@ -33,12 +37,31 @@ git commit -m "Update hero section copy
 
 Co-Authored-By: Warp <agent@warp.dev>"
 
-# 4. Deploy to production
-./deploy.sh
+# 5. Push and open PR
+git push -u origin feat/your-change
 
-# 5. Push to GitHub
-git push origin main
+# 6. Merge PR to main after checks pass
+# - AI PR Review
+# - Docs Sync Check
+# 7. Deployment runs automatically on push to main
 ```
+
+---
+
+## 🔁 CI/CD Workflow
+
+### Required Checks Before Merge
+
+- `AI PR Review` (posts AI review comment on the PR)
+- `Docs Sync Check` (fails if deploy/infra changes are made without `*.md` updates)
+
+### Automatic Deploy
+
+- Merging into `main` triggers `.github/workflows/deploy-main.yml`
+- Deployment uses AWS credentials from GitHub Actions secrets
+- Bucket/distribution/region are injected from GitHub Actions variables
+
+Setup details are documented in `GITHUB-ACTIONS-SETUP.md`.
 
 ---
 

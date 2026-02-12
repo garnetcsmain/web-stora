@@ -23,9 +23,10 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-BUCKET="storaapp.com"
-DISTRIBUTION_ID="E2ONCP326U5DRW"
-REGION="us-east-1"
+# Allow CI/CD workflows to override defaults via environment variables.
+BUCKET="${BUCKET:-storaapp.com}"
+DISTRIBUTION_ID="${DISTRIBUTION_ID:-E2ONCP326U5DRW}"
+REGION="${REGION:-us-east-1}"
 
 # Print with color
 print_info() {
