@@ -115,7 +115,7 @@ p {
 .container {
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 var(--spacing-lg);
+    padding: 0 clamp(20px, 3vw, 32px);
 }
 
 .section {
@@ -150,15 +150,19 @@ p {
 .btn {
     font-family: var(--font-button);
     font-weight: 700;
-    font-size: 16px;
-    padding: 12px 32px;
+    font-size: 17px;
+    line-height: 1.2;
+    padding: 12px 28px;
     border-radius: var(--radius-full);
-    border: 2px solid transparent;
+    border: 1.5px solid transparent;
     cursor: pointer;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
     transition: all 0.3s ease;
     text-align: center;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.2px;
 }
 
 .btn-primary {
@@ -176,7 +180,7 @@ p {
     background-color: var(--color-white);
     color: var(--color-primary);
     border-color: var(--color-white);
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .btn-white:hover {
@@ -187,7 +191,7 @@ p {
     background-color: transparent;
     color: var(--color-secondary);
     border-color: var(--color-secondary);
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .btn-secondary:hover {
@@ -198,7 +202,7 @@ p {
     background-color: transparent;
     color: var(--color-secondary);
     border-color: var(--color-secondary);
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .btn-outline:hover {
@@ -209,8 +213,8 @@ p {
     background-color: var(--color-secondary);
     color: var(--color-white);
     border-color: var(--color-secondary);
-    font-size: 36px;
-    padding: 12px 40px;
+    font-size: 28px;
+    padding: 12px 32px;
 }
 
 .btn-orange:hover {
@@ -296,6 +300,12 @@ p {
 .hero-cta {
     display: flex;
     gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.hero-cta .btn {
+    min-width: 228px;
+    white-space: nowrap;
 }
 
 .hero-image {
@@ -420,6 +430,12 @@ p {
     max-width: 1096px;
 }
 
+.about-system-image {
+    display: block;
+    width: min(100%, 1097px);
+    margin: 0 auto;
+}
+
 .about-text {
     text-align: center;
     max-width: 1216px;
@@ -484,44 +500,70 @@ p {
 
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
     margin-top: var(--spacing-xl);
-    max-width: 1203px;
+    max-width: var(--container-width);
     margin-left: auto;
     margin-right: auto;
 }
 
 .pricing-card {
     background-color: var(--color-white);
-    padding: 56px var(--spacing-lg);
-    border-radius: var(--radius-lg);
+    padding: 30px 22px 24px;
+    border-radius: 28px;
+    border: 1px solid rgba(2, 40, 89, 0.12);
     box-shadow: var(--shadow-card);
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xl);
+    gap: var(--spacing-lg);
+    min-height: 320px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pricing-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--color-secondary), #ffc177);
+}
+
+.pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(2, 40, 89, 0.16);
 }
 
 .pricing-header h3 {
     text-align: center;
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 10px;
+    font-size: 27px;
 }
 
 .pricing-description {
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
     line-height: 1.4;
+    min-height: 44px;
 }
 
 .pricing-price {
     font-weight: 800;
-    font-size: 30px;
+    font-size: 24px;
+    line-height: 1.25;
     text-align: center;
     margin: auto 0;
 }
 
 .pricing-card .btn {
     width: 100%;
+    font-size: 16px;
+    min-height: 44px;
+    padding: 10px 16px;
 }
 
 /* ===================================
@@ -667,6 +709,7 @@ p {
     
     .hero-content {
         flex-direction: column;
+        text-align: center;
     }
     
     .hero-image {
@@ -683,8 +726,8 @@ p {
     }
     
     .pricing-grid {
-        grid-template-columns: 1fr;
-        max-width: 400px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 860px;
     }
     
     .solution-item-left .solution-content {
@@ -699,6 +742,7 @@ p {
         flex-direction: column;
         gap: var(--spacing-md);
     }
+
 }
 
 /* Mobile */
@@ -706,6 +750,8 @@ p {
     :root {
         --container-padding: 24px;
         --spacing-3xl: 60px;
+        --spacing-xl: 36px;
+        --spacing-lg: 24px;
     }
     
     h1 {
@@ -725,19 +771,20 @@ p {
     }
     
     .btn {
-        font-size: 14px;
-        padding: 10px 24px;
+        font-size: 15px;
+        min-height: 46px;
+        padding: 10px 20px;
     }
     
     .btn-white,
     .btn-secondary,
     .btn-outline {
-        font-size: 18px;
+        font-size: 17px;
     }
     
     .btn-orange {
-        font-size: 24px;
-        padding: 10px 32px;
+        font-size: 22px;
+        padding: 10px 24px;
     }
     
     .nav {
@@ -752,6 +799,21 @@ p {
     
     .hero-cta {
         flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-cta .btn {
+        min-width: 0;
+        width: 100%;
+        white-space: normal;
+    }
+
+    .hero {
+        padding: 72px 0 52px;
+    }
+
+    .section {
+        padding: 72px 0;
     }
     
     .problem-grid {
@@ -791,6 +853,25 @@ p {
     .form-group textarea {
         font-size: 16px;
         padding: 12px 24px;
+    }
+
+    .pricing-card {
+        padding: 32px 24px;
+        gap: var(--spacing-lg);
+        min-height: 0;
+    }
+
+    .pricing-price {
+        font-size: 24px;
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+    }
+
+    .about-system-image {
+        width: 100%;
     }
 }
 
