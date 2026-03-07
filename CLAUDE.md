@@ -28,6 +28,7 @@ This is NOT the operational WMS application — that is `acwarehouse-web` (Angul
 | acwarehouse-web | Angular admin/ops web frontend |
 | acwarehouse-mobile | Flutter mobile app for warehouse floor workers |
 | web-stora | Public marketing/landing website (this repo) |
+| acwarehouse-stora-technical-docs | Technical documentation (architecture, standards, guides) |
 
 ---
 
